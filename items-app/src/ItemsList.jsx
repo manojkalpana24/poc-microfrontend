@@ -4,7 +4,7 @@ import { Provider, useSelector, useDispatch } from "react-redux";
 import reducer, { itemsAppScope } from "./reducer";
 import { fetchItemsAction } from "./action";
 import ErrorBoundary from "./ErrorBoundary";
-import Example from "./Example";
+import { EqualColumnLayout } from "@pluralsight/ps-design-system-layout";
 
 const layoutAppScope = "layoutAppReducer";
 
@@ -14,7 +14,6 @@ const ItemsContent = () => {
   const itemsAppState = useSelector((state) => state[itemsAppScope]);
 
   useEffect(() => {
-    console.log(itemsAppState);
     dispatch(fetchItemsAction(layoutAppState.searchItemsKeyword));
   }, [layoutAppState.searchItemsKeyword]);
 
@@ -22,7 +21,8 @@ const ItemsContent = () => {
     return <Item key={value.id} {...value}></Item>;
   });
 
-  return <div className="grid grid-cols-4 gap-4">{items}</div>;
+  return <EqualColumnLayout count={4}>
+      <ul>{items}</ul></EqualColumnLayout>;
 };
 
 const ItemsList = (props) => {
@@ -31,15 +31,17 @@ const ItemsList = (props) => {
     store.injectReducer(itemsAppScope, reducer);
   }, []);
 
-  useEffect(() => {
-    console.log('fsfsadf')
-  });
-
   return (
     <Provider store={store || {}}>
       <ErrorBoundary>
-        <div style={{marginRight: '100px', marginLeft: '100px', marginTop: '100px'}}>
-          <Example />
+        <div
+          style={{
+            marginRight: "100px",
+            marginLeft: "100px",
+            marginTop: "100px",
+          }}
+        >
+          <ItemsContent></ItemsContent>
         </div>
       </ErrorBoundary>
     </Provider>
