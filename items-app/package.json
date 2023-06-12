@@ -10,7 +10,7 @@
   },
   "license": "MIT",
   "author": {
-    "name": "Manoj",
+    "name": "Manoj"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
@@ -24,13 +24,19 @@
     "postcss": "^8.2.1",
     "postcss-loader": "^4.1.0",
     "style-loader": "^3.3.0",
-    "tailwindcss": "^2.0.2",
     "webpack": "^5.57.1",
     "webpack-cli": "^4.9.0",
     "webpack-dev-server": "^4.3.1"
   },
   "dependencies": {
     "@babel/runtime": "^7.13.10",
+    "@pluralsight/ps-design-system-avatar": "^13.0.6",
+    "@pluralsight/ps-design-system-card": "^19.1.2",
+    "@pluralsight/ps-design-system-core": "^10.0.4",
+    "@pluralsight/ps-design-system-icon": "^25.4.1",
+    "@pluralsight/ps-design-system-layout": "^12.0.15",
+    "@pluralsight/ps-design-system-normalize": "^7.0.4",
+    "@pluralsight/ps-design-system-theme": "^8.1.24",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^8.0.4",

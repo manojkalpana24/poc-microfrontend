@@ -1,10 +1,10 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
-
+const path = require("path");
 const deps = require("./package.json").dependencies;
 module.exports = {
   output: {
-    publicPath: "http://localhost:3002/",
+    publicPath: "http://localhost:4002/",
   },
 
   resolve: {
@@ -12,7 +12,7 @@ module.exports = {
   },
 
   devServer: {
-    port: 3002,
+    port: 4002,
     historyApiFallback: true,
   },
 
@@ -27,7 +27,7 @@ module.exports = {
       },
       {
         test: /\.(css|s[ac]ss)$/i,
-        use: ["style-loader", "css-loader", "postcss-loader"],
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
       {
         test: /\.(ts|tsx|js|jsx)$/,
@@ -44,7 +44,8 @@ module.exports = {
       name: "layout_app",
       filename: "remoteEntry.js",
       remotes: {
-        items_app: "items_app@http://localhost:3003/remoteEntry.js"
+        items_app: "items_app@http://localhost:4003/remoteEntry.js",
+        parent_app: "parent_app@http://localhost:4001/remoteEntry.js",
       },
       exposes: {
         "./Header": "./src/Header.jsx",

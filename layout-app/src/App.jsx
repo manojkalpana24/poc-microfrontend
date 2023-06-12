@@ -1,12 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Header from "./Header";
-import ItemsList from "items_app/ItemsList";
-import "./index.scss";
+//import ItemsList from "items_app/ItemsList";
+import "@pluralsight/ps-design-system-core";
+import "@pluralsight/ps-design-system-normalize";
 
-const App = () => (
-  <div className="bg-white dark:bg-gray-900 h-auto w-screen">
-    <Header />
-  </div>
+import "./index.css";
+import MainLayout from "parent_app/MainLayout";
+
+ReactDOM.render(
+    <MainLayout />,
+  document.getElementById("app")
 );
-ReactDOM.render(<App />, document.getElementById("app"));

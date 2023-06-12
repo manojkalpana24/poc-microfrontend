@@ -4,6 +4,7 @@ import { Provider, useSelector, useDispatch } from "react-redux";
 import reducer, { itemsAppScope } from "./reducer";
 import { fetchItemsAction } from "./action";
 import ErrorBoundary from "./ErrorBoundary";
+import Example from "./Example";
 
 const layoutAppScope = "layoutAppReducer";
 
@@ -30,10 +31,16 @@ const ItemsList = (props) => {
     store.injectReducer(itemsAppScope, reducer);
   }, []);
 
+  useEffect(() => {
+    console.log('fsfsadf')
+  });
+
   return (
     <Provider store={store || {}}>
       <ErrorBoundary>
-        <ItemsContent />
+        <div style={{marginRight: '100px', marginLeft: '100px', marginTop: '100px'}}>
+          <Example />
+        </div>
       </ErrorBoundary>
     </Provider>
   );
