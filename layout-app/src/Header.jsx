@@ -25,13 +25,17 @@ const HeaderContent = () => {
   };
 
   const onSubmitSearchItems = (event) => {
-    if(event.keyCode !== 13) return;
+    if (event.keyCode !== 13) return;
     dispatch(searchItemsAction(searchItemsInput));
   };
 
+  const onClickBrowse = () => {
+    dispatch(searchItemsAction("all"));
+  }
+
   return (
     <NavBar
-      brand={<NavBrand logo={<MyLogo />} wordmark="TITLE" />}
+      brand={<NavBrand logo={<MyLogo />} wordmark="SKILLS" />}
       items={
         <>
           <div
@@ -46,6 +50,7 @@ const HeaderContent = () => {
             style={{
               display: "inline-block",
             }}
+            onClick={onClickBrowse}
           >
             <NavItem icon={<BrowseIcon />} selected>
               Browse
@@ -53,7 +58,7 @@ const HeaderContent = () => {
             <NavItem>
               <SearchInput
                 enterKeyHint="search"
-                placeholder="Search and press enter to be taken to the search results"
+                placeholder="Search and press enter"
                 onChange={onChangeSearchItems}
                 onKeyDown={onSubmitSearchItems}
               />

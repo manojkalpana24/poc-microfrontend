@@ -10,28 +10,62 @@ const initialState = {
 const itemsMock = [
   {
     id: 1,
-    imgUrl: "https://flowbite.com/docs/images/products/apple-watch.png",
-    title: "Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport",
-    rating: 5,
-    price: "$100",
+    imgUrl: "https://picsum.photos/seed/picsum/540/360",
+    title: "Advanced TypeScript",
+    path: true,
+    progress: 40,
   },
   {
     id: 2,
-    imgUrl: "https://flowbite.com/docs/images/products/apple-watch.png",
-    title: "Bourge Mens Vega-z5 Running Shoes, Gym Shoes",
-    rating: 3,
-    price: "$69",
+    imgUrl: "https://picsum.photos/seed/picsum/540/360",
+    title: "Module federation and webpack",
+    path: false,
+    progress: 20,
+  },
+  {
+    id: 3,
+    imgUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
+    title: "Advanced Javascript Course",
+    path: false,
+    progress: 70,
+  },
+  {
+    id: 4,
+    imgUrl: "https://picsum.photos/seed/picsum/540/360",
+    title: "Apache Kafka Deep Dive",
+    path: false,
+    progress: 80,
+  },
+  {
+    id: 5,
+    imgUrl: "https://picsum.photos/seed/picsum/540/360",
+    title: "AWS fundamentals",
+    path: false,
+    progress: 10,
+  },
+  {
+    id: 6,
+    imgUrl: "https://picsum.photos/seed/picsum/540/360",
+    title: "Generative AI fundamentals",
+    path: false,
+    progress: 10,
   },
 ];
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_ITEMS: {
+
+      if (action.payload === "all") {
+        return {
+          ...state,
+          items: itemsMock,
+        }
+      }
+
       let items = itemsMock.filter((value) =>
         value?.title?.toLowerCase().includes(action.payload.toLowerCase())
       );
-
-      console.log("FETC", items);
 
       return {
         ...state,

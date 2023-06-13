@@ -18,11 +18,11 @@ const ItemsContent = () => {
   }, [layoutAppState.searchItemsKeyword]);
 
   const items = itemsAppState?.items?.map((value, index) => {
-    return <Item key={value.id} {...value}></Item>;
+    return <li><Item key={value.id} {...value}></Item></li>;
   });
 
-  return <EqualColumnLayout count={4}>
-      <ul>{items}</ul></EqualColumnLayout>;
+  return <EqualColumnLayout>
+    <ul>{items}</ul></EqualColumnLayout>;
 };
 
 const ItemsList = (props) => {

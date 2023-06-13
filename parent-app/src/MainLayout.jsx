@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 
 import Header from "layout_app/Header";
 import { store } from "./store";
+import "./index.css";
 
 const ItemsList = React.lazy(() => import("items_app/ItemsList"));
 

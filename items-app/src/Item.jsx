@@ -8,23 +8,21 @@ import {
   PlayCircleIcon,
 } from "@pluralsight/ps-design-system-icon";
 
-export default function Item(props) {
+export default function Item({ title, path, progress, imgUrl }) {
   return (
-    <li>
-      <Card
-        tag={<Card.Tag icon={<PathIcon />}>Path</Card.Tag>}
-        title={<Card.Title>Advanced TypeScript</Card.Title>}
-        progress={0}
-        image={
-          <Card.Image
-            src="https://picsum.photos/seed/picsum/540/360"
-            aria-label="img desc"
-          />
-        }
-        metadata1={["Brice Wilson", "Advanced"]}
-        metadata2={["0m watched"]}
-        size={Card.sizes.small}
-      />
-    </li>
+    <Card
+      tag={path ? <Card.Tag icon={<PathIcon />}>Path</Card.Tag> : <></>}
+      title={<Card.Title>{title}</Card.Title>}
+      progress={progress}
+      image={
+        <Card.Image
+          src={imgUrl}
+          aria-label="img desc"
+        />
+      }
+      metadata1={["Brice Wilson", "Advanced"]}
+      metadata2={["0m watched"]}
+      size={Card.sizes.small}
+    />
   );
 }
