@@ -48,17 +48,17 @@ your preferred browser.
 
 parent-app
 ```sh
-127.0.0.1:3001
+127.0.0.1:4001
 ```
 
 layout-app
 ```sh
-127.0.0.1:3002
+127.0.0.1:4002
 ```
 
 items-app
 ```sh
-127.0.0.1:3003
+127.0.0.1:4003
 ```
 ## License
 
